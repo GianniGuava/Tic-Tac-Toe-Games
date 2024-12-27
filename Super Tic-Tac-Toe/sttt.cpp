@@ -11,5 +11,21 @@ struct stttBoard{
 
     //Functions
     //----------------------
-    void 
+    void makeMove(int metaR, int metaC, int miniR, int miniC, int turn){ 
+        miniBoards[metaR][metaC].update_board(miniR, miniC, turn);
+    }
+
+    int metaGameOver(){
+        return metaBoard.game_over();
+    }
+
+    bool miniBoardDone(){
+
+    }
+
+    bool metaBoardFull(){}
+
+    void resetMetaBoard(){}
+
+    void printMetaBoard(){}
 };

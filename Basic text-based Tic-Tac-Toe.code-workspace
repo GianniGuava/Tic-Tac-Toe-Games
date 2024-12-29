@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"uri": "vscode-remote://wsl+ubuntu/home/gianni/Code/Tic-Tac-Toe Games/Basic text-based Tic-Tac-Toe"
+		},
+		{
+			"uri": "vscode-remote://wsl+ubuntu/home/gianni/Code/Tic-Tac-Toe Games/Super Tic-Tac-Toe"
+		}
+	],
+	"remoteAuthority": "wsl+ubuntu",
+	"settings": {
+		"files.associations": {
+			"*.tcc": "cpp",
+			"deque": "cpp",
+			"string": "cpp",
+			"unordered_map": "cpp",
+			"vector": "cpp",
+			"iostream": "cpp",
+			"stdexcept": "cpp",
+			"fstream": "cpp",
+			"ostream": "cpp",
+			"iomanip": "cpp",
+			"list": "cpp",
+			"string_view": "cpp",
+			"functional": "cpp"
+		}
+	}
+}

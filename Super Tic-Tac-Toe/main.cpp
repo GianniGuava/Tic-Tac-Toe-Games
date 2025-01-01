@@ -10,16 +10,14 @@ stttBoard board;
 
 int main(int argc, char* argv[]){
     //Intro
-    cout << endl;
-    cout << "Welcome to my text-based tic-tac-toe game!" << endl;
-    cout << "──────────────────────────────────────────" << endl;
+    cout << "\nWelcome to my text-based Super Tic-Tac-Toe game!\n";
+    cout << "──────────────────────────────────────────\n";
 
     //Loop to determine X or O start
     char againChar;
     do{
         int turn = 0; //O: -1 | X: 1    Multiply by -1 to flip turn
-        cout << endl;
-        cout << "Let's play tic-tac-toe!" << endl;
+        cout << "\nLet's play Super Tic-Tac-Toe!\n" ;
         
         //X or Y start dialogue loop
         char choiceChar;
@@ -31,7 +29,7 @@ int main(int argc, char* argv[]){
 
             //Check input is 1 character
             if(choice.length() != 1){
-                cout << "Invalid input, please enter X or O." << endl;
+                cout << "[Error]: Please enter X or O.\n";
                 continue;
             }
 
@@ -40,7 +38,7 @@ int main(int argc, char* argv[]){
 
             //Check for valid x/y input
             if(choiceChar != 'X' && choiceChar != 'O'){
-                cout << "Invalid input, please enter X or O." << endl;
+                cout << "[Error]: Please enter X or O.\n";
             }
 
         }while(choiceChar != 'X' && choiceChar != 'O');
@@ -55,7 +53,9 @@ int main(int argc, char* argv[]){
         bool game_continue = true;
         int boardToBePlayed = 0;
         do{
+            //Print game state
             board.printMetaBoard();
+
             //To print whose turn it is
             char token;
             if(turn == 1){ token = 'X'; }
@@ -69,15 +69,15 @@ int main(int argc, char* argv[]){
             string userBoard;
             if(boardToBePlayed == 0){ 
                 //If user can play anywhere, select a board
-                cout << token << ", you can play on any unfinished board." << endl;
+                cout << "Player [" << token << "], it's your turn! You can play on any unfinished board." << endl;
                 while(true){
                     //Prompt user for board
-                    cout << "What board would you like to play on?: ";
+                    cout << "What board would you like to play on, ["<< token << "]?: ";
                     getline(cin, userBoard);
 
                     //Check input is a valid digit
                     if(userBoard.length() != 1 || !isdigit(userBoard[0]) || userBoard == "0"){
-                        cout << "Invalid input, please enter an integer between 1 and 9." << endl;
+                        cout << "[Error]: Please enter a valid number (1-9).\n";
                         continue;
                     }
 
@@ -90,7 +90,7 @@ int main(int argc, char* argv[]){
 
                     //Check if board is finished
                     if(board.completedBoards[boardRow][boardCol] == true){
-                        cout << "That board has been completed, play in a different board." << endl;
+                        cout << "[Error]: Board has been completed. Please play in a different board.\n";
                         boardToBePlayed = 0;
                         continue;
                     }
@@ -98,7 +98,7 @@ int main(int argc, char* argv[]){
                 }
             }else{
                 //Tell the user where they can play
-                cout << token << ", you can play on board: " << boardToBePlayed << endl;
+                cout << "Player [" << token << "], you can play on board: " << boardToBePlayed << endl;
             }
 
             //Valid square placement loop
@@ -108,12 +108,12 @@ int main(int argc, char* argv[]){
                 board.miniBoards[boardRow][boardCol].print_board('p');
 
                 //Select new square
-                cout << "What square would you like to play in that board?: ";
+                cout << "What square would you like to play in that board, ["<< token << "]?: ";
                 getline(cin, userSquare);
 
                 //Check input is a valid digit
                 if(userSquare.length() != 1 || !isdigit(userSquare[0]) || userSquare == "0"){
-                    cout << "Invalid input, please enter an integer between 1 and 9." << endl;
+                    cout << "[Error]: Please enter a valid number (1-9).\n";
                     continue;
                 }
 
@@ -127,7 +127,7 @@ int main(int argc, char* argv[]){
                 //Attempt to make the move
                 //If the square is occupied, reprompt
                 if(!board.makeMove(boardRow, boardCol, squareRow, squareCol, turn)){
-                    cout << "This square is filled already, please try again." << endl;
+                    cout << "[Error]: Square already filled. Please pick a different square.\n";
                     board.printMetaBoard();
                     continue;
                 }else{ 
@@ -140,26 +140,27 @@ int main(int argc, char* argv[]){
                         boardToBePlayed = 0;
                     }
                     turn *= -1;
-                    break; 
+                    break;
                 }
-
-                //Print out winner of game
-                if(board.metaBoardFull()){
-                    int winner = board.metaGameOver();
-                    if(winner == 1){
-                        //X won
-                        cout << "X won!" << endl;
-                        game_continue = false;
-                    }else if(winner == -1){
-                        //O won
-                        cout << "O won!" << endl;
-                        game_continue = false;
-                    }else if(winner == 0){
-                        //Draw 
-                        cout << "It's a draw!" << endl;
-                        game_continue = false;
-                    }
+            }
+            //Print out winner of game
+            if(board.metaBoardFull() || board.metaGameOver() != 0){
+                int winner = board.metaGameOver();
+                cout << "\n*********************************";
+                if(winner == 1){
+                    //X won
+                    cout << "*           X WINS!             *\n";
+                    game_continue = false;
+                }else if(winner == -1){
+                    //O won
+                    cout << "*           O WINS!             *\n";
+                    game_continue = false;
+                }else if(winner == 0){
+                    //Draw 
+                    cout << "*           A DRAW!             *\n";
+                    game_continue = false;
                 }
+                cout << "*********************************\n";
             }
         }while(game_continue);
         board.resetMetaBoard();
@@ -172,7 +173,7 @@ int main(int argc, char* argv[]){
 
             //Check input is 1 character
             if(again.length() != 1){
-                cout << "Invalid input, please enter Y or N." << endl;
+                cout << "[Error]: Please enter Y or N.\n";
                 continue;
             }
             
@@ -181,15 +182,14 @@ int main(int argc, char* argv[]){
 
             //Check for valid Y/N input
             if(againChar != 'Y' && againChar != 'N'){
-                cout << "Invalid input, please enter Y or N." << endl;
+                cout << "[Error]: Please enter Y or N.\n";
             }
         }while(againChar != 'Y' && againChar != 'N');   
-
+    if(againChar == 'Y'){ cout << "The game has been reset. Let's play again!\n";}
     }while(againChar == 'Y');
 
-    cout << endl;
-    cout << "Thank you for playing!" << endl;
-    cout << "──────────────────────────────────────────" << endl;
+    cout << "\nThank you for playing!\n";
+    cout << "──────────────────────────────────────────\n";
     
     return 0;
 }

@@ -73,20 +73,20 @@ struct tttBoard{
         //Initial board
         cout << endl;
         if (type == 'i'){
-            cout << "Here's the layout of the board for selecting your moves on the Mini Board:" << endl;
+            cout << "Here's the layout of the board for selecting your moves on the Mini Board:\n";
             cout << endl;
             for(int i = 1; i < 10; i++){
                 cout << " " << i << " ";
                 if(i % 3 != 0){ cout << "│"; }
                 if(i % 3 == 0 && i < 9){ cout << endl; }
-                if(i % 3 == 0 && i < 9){ cout << "───┼───┼───" << endl; }
+                if(i % 3 == 0 && i < 9){ cout << "───┼───┼───\n"; }
             }
         cout << endl;
         }
 
         //Board in play
         if(type == 'p'){
-            cout << "This is the current state of the board:" << endl;
+            cout << "This is the current state of the board:\n";
             cout << endl;
             for(int r = 0; r < 3; r++){
                 for(int c = 0; c < 3; c++){
@@ -99,7 +99,7 @@ struct tttBoard{
                     if(c != 2){ cout << "│"; }
                     if(c == 2){ cout << endl; } 
                 }
-                if(r != 2){ cout << "───┼───┼───" << endl;}
+                if(r != 2){ cout << "───┼───┼───\n";}
             }
         }
         cout << endl;

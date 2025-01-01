@@ -36,13 +36,13 @@ struct stttBoard{
             int square = (row * 3) + col + 1;
             if(result == 1){
                 //X won
-                cout << "X won on board: " << square << endl;
+                cout << "[Result]: X wins on board " << square << "!\n";
             }else if(result == -1){
                 //O won
-                cout << "O won on board: " << square << endl;
+                cout << "[Result]: O wins on board " << square << "!\n";
             }else if(result == 0){
                 //Draw 
-                cout << "It's a draw on board: " << square << endl;
+                cout << "[Result]: It's a draw on board " << square << "!\n";
             }
         }
     }
@@ -66,6 +66,8 @@ struct stttBoard{
         metaBoard.reset_board();
     }
 
+    //Print Functions
+    //----------------------
     string gameLineMini(char arr[9][9], int i){
         stringstream ss;
         ss << " " << arr[i][0] << " | " << arr[i][1] << " | " << arr[i][2] << "   ║   "
@@ -78,7 +80,7 @@ struct stttBoard{
         stringstream ss;
         ss << "       ║  " << arr[i][0] << "  ║  "
                           << arr[i][1] << "  ║  " 
-                          << arr[i][2] << "  ║  " << endl;
+                          << arr[i][2] << "  ║  \n";
         return ss.str();
     }
 
@@ -86,7 +88,7 @@ struct stttBoard{
         stringstream ss;
         ss << 
             "\n"
-            "Here's the layout of the board for selecting your moves on the Super Board:\n"
+            "Here's the layout of the board for selecting your moves on the Game Board:\n"
             "\n"
             " 1 | 1 | 1   ║   2 | 2 | 2  ║   3 | 3 | 3 \n"
             "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───\n"
@@ -118,6 +120,7 @@ struct stttBoard{
         char mini[9][9];
         char meta[3][3];
 
+        //Initialize board variables for printing
         for(int i = 0; i < 3; i++){
             for(int j = 0; j < 3; j++){
                 for(int k = 0; k < 3; k++){
@@ -142,31 +145,31 @@ struct stttBoard{
             }
         }
 
-        cout << "───────────────────────────────────────────────────────────────────" << endl;
-        cout << "                Game Board" << endl;
+        cout << "───────────────────────────────────────────────────────────────────\n";
+        cout << "                Game Board\n";
         cout << endl;
         cout << gameLineMini(mini, 0) << endl;
-        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───" << endl;
+        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───\n";
         cout << gameLineMini(mini, 1)    << endl;
-        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───" << endl;
+        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───\n";
         cout << gameLineMini(mini, 2)    << endl;
         cout << "             ║              ║"                 << endl;
-        cout << "═════════════╬══════════════╬═════════════           Meta Board" << endl;
-        cout << "             ║              ║                   ╔═════╦═════╦═════╗" << endl;
+        cout << "═════════════╬══════════════╬═════════════           Meta Board\n";
+        cout << "             ║              ║                   ╔═════╦═════╦═════╗\n";
         cout << gameLineMini(mini, 3) << gameLineMeta(meta, 0);
-        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───      ╠═════╬═════╬═════╣" << endl;
+        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───      ╠═════╬═════╬═════╣\n";
         cout << gameLineMini(mini, 4) << gameLineMeta(meta, 1);
-        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───      ╠═════╬═════╬═════╣" << endl;
+        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───      ╠═════╬═════╬═════╣\n";
         cout << gameLineMini(mini, 5) << gameLineMeta(meta, 2);
-        cout << "             ║              ║                   ╚═════╩═════╩═════╝" << endl;
-        cout << "═════════════╬══════════════╬═════════════"    << endl;
-        cout << "             ║              ║"                 << endl;
+        cout << "             ║              ║                   ╚═════╩═════╩═════╝\n";
+        cout << "═════════════╬══════════════╬═════════════\n";
+        cout << "             ║              ║\n";
         cout << gameLineMini(mini, 6)    << endl;
-        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───" << endl;
+        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───\n";
         cout << gameLineMini(mini, 7)    << endl;
-        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───" << endl;
+        cout << "───┼───┼───  ║  ───┼───┼─── ║  ───┼───┼───\n";
         cout << gameLineMini(mini, 8)    << endl;
-        cout << "───────────────────────────────────────────────────────────────────" << endl;
+        cout << "───────────────────────────────────────────────────────────────────\n";
         cout << endl;
     }
 };

@@ -73,7 +73,7 @@ struct tttBoard{
         //Initial board
         cout << endl;
         if (type == 'i'){
-            cout << "Here's the layout of the board for selecting your moves:" << endl;
+            cout << "Here's the layout of the board for selecting your moves on the Mini Board:" << endl;
             cout << endl;
             for(int i = 1; i < 10; i++){
                 cout << " " << i << " ";

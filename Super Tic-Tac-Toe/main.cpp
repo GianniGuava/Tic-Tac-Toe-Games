@@ -48,12 +48,14 @@ int main(int argc, char* argv[]){
             if(choiceChar == 'O'){ turn = -1; }
 
         //Print initial board
-        board.printMetaBoard();
+        board.printMetaBoardI();
+        board.miniBoards[0][0].print_board('i');
 
         //While loop to run game
         bool game_continue = true;
         int boardToBePlayed = 0;
         do{
+            board.printMetaBoard();
             //To print whose turn it is
             char token;
             if(turn == 1){ token = 'X'; }
@@ -90,7 +92,6 @@ int main(int argc, char* argv[]){
                     if(board.completedBoards[boardRow][boardCol] == true){
                         cout << "That board has been completed, play in a different board." << endl;
                         boardToBePlayed = 0;
-                        board.printMetaBoard();
                         continue;
                     }
                     break;
@@ -103,6 +104,9 @@ int main(int argc, char* argv[]){
             //Valid square placement loop
             string userSquare;
             while(true){
+                //Print mini board
+                board.miniBoards[boardRow][boardCol].print_board('p');
+
                 //Select new square
                 cout << "What square would you like to play in that board?: ";
                 getline(cin, userSquare);

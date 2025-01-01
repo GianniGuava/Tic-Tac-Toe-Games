@@ -18,6 +18,13 @@ int main(int argc, char* argv[]){
     do{
         int turn = 0; //O: -1 | X: 1    Multiply by -1 to flip turn
         cout << "\nLet's play Super Tic-Tac-Toe!\n" ;
+
+        cout << "\nThe rules are as follows: \n"
+             << "The number of the square you play will force the board that your opponent\n" 
+             << "will have to play unless the board picked is finished. The game continues\n" 
+             << "until the meta board is won or comes to a draw. Each mini board that is won\n"
+             << "or that comes to a draw will be reflected on the meta board.\n";
+        cout << endl;
         
         //X or Y start dialogue loop
         char choiceChar;

@@ -17,7 +17,7 @@ Of the currently released variants, playing for X and O requires user input. Bri
 - **Super Tic-Tac-Toe vs. AI:** Play against an AI in Super Tic-Tac-Toe!
 
 ## Installation Instructions:
-This project was made and designed for **VSCode**. Follow the steps below to start playing:
+This project was made and designed in **VSCode**. Follow the steps below to start playing:
 
 1. **Clone the Repository:**
   - Create the file you want to clone your repository in.

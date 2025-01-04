@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <deque>
+#include <utility>
 using namespace std;
 
 struct itttBoard{
@@ -13,8 +14,8 @@ struct itttBoard{
         {0, 0, 0},
         {0, 0, 0}
     };
-    deque <int, int> xs;
-    deque <int, int> os;
+    deque<pair<int, int>> xs;
+    deque<pair<int, int>> os;
 
     //Functions
     //----------------------
@@ -52,7 +53,10 @@ struct itttBoard{
 
     bool occupied(int row, int col){
         if(game_board[row][col] != 0){ return true; } 
-        else if()
+        else if(xs.size() == 4 || os.size() == 4){
+            if(xs.back().first == row && xs.back().second == col){ return true; }
+            else if(os.back().first == row && os.back().second == col){ return true; }
+        }
         return false;
     }
 
@@ -85,10 +89,16 @@ struct itttBoard{
             cout << endl;
             for(int r = 0; r < 3; r++){
                 for(int c = 0; c < 3; c++){
-                    char token = ' ';
-                    if(game_board[r][c] == 1){ token = 'X'; }
-                    if(game_board[r][c] == -1){ token = 'O'; }
-                    if(game_board[r][c] == 0){ token = ' '; }
+                    string token = " ";
+                    if(game_board[r][c] == 1){ 
+                        if(xs.back().first == r && xs.back().second == c && xs.size() == 4){ token = "×"; }
+                        else{ token = "X";  }
+                        }
+                    if(game_board[r][c] == -1){ 
+                        if(os.back().first == r && os.back().second == c && os.size() == 4){ token = "◌"; }
+                        else{ token = "O";  }
+                        }
+                    if(game_board[r][c] == 0){ token = " "; }
 
                     cout << " " << token << " ";
                     if(c != 2){ cout << "│"; }

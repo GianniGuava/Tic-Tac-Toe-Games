@@ -89,6 +89,7 @@ int main(int argc, char* argv[]){
                 col = (square - 1) % 3;
                 
                 //Check if square is occupied or not
+                //Also checks if row and col is of a square that will be deleted
                 if(board.occupied(row, col)){
                     cout << "[Error]: Square already filled. Please pick a different square.\n";
                     board.print_board('p');
@@ -98,10 +99,19 @@ int main(int argc, char* argv[]){
             }while(square < 1 || square > 9 || board.occupied(row, col));    
 
             //Update the board and the turn, and print the board
+            if(turn == 1){
+                board.xs.push_front(make_pair(row, col));
+                board.update_board(board.xs.back().first, board.xs.back().second, 0);
+            }else if (turn == -1){
+                board.os.push_front(make_pair(row, col));
+                board.update_board(board.os.back().first, board.os.back().second, 0);
+            }
             board.update_board(row, col, turn);
             turn *= -1;  
             board.print_board('p');
-        
+            if(turn == 1){ board.os.pop_back(); }
+            if(turn == -1) { board.xs.pop_back(); }
+            
             //Check if the game is over
             int result = board.game_over();
             if(result == 1){
@@ -112,12 +122,6 @@ int main(int argc, char* argv[]){
                 //O won
                 cout << "O won!" << endl;
                 game_continue = false;
-            }else if(result == 0){
-                if(board.full_board()){ 
-                    //Draw 
-                    cout << "It's a draw!" << endl;
-                    game_continue = false;
-                }
             }
         }while(game_continue);
             board.reset_board();

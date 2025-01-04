@@ -29,7 +29,7 @@ This project was made and designed in **VSCode**. Follow the steps below to star
     
 2. **Set Up Your Environment:**
    - Make sure you have a **C++ compiler** installed, such as:
-     - **GCC (g++)** for Windows, Linux, or macOS.
+     - **GCC (g++)** for Windows, Linux, or macOS. [Download GCC](https://gcc.gnu.org/)
      - On Windows, you can install GCC via [MinGW](https://www.mingw-w64.org/) or [MSYS2](https://www.msys2.org/).
      - On macOS, install Xcode Command Line Tools with the command:
        ```bash

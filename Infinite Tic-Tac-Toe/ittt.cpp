@@ -54,8 +54,8 @@ struct itttBoard{
     bool occupied(int row, int col){
         if(game_board[row][col] != 0){ return true; } 
         else if(xs.size() == 4 || os.size() == 4){
-            if(xs.back().first == row && xs.back().second == col){ return true; }
-            else if(os.back().first == row && os.back().second == col){ return true; }
+            // if(xs.back().first == row && xs.back().second == col){ return true; }
+            // else if(os.back().first == row && os.back().second == col){ return true; }
         }
         return false;
     }
@@ -66,9 +66,10 @@ struct itttBoard{
                 game_board[r][c] = 0;
             }
         }   
+        //Reset xs and os deques
     }
 
-    void print_board(char type){
+    void print_board(char type, int turn){
         //Initial board
         cout << endl;
         if (type == 'i'){

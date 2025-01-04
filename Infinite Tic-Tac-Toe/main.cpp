@@ -49,7 +49,7 @@ int main(int argc, char* argv[]){
             if(choiceChar == 'O'){ turn = -1; }
 
         //Display Initial board
-        board.print_board('i');
+        board.print_board('i', 0);
 
         //Valid placement loop
         bool game_continue = true;
@@ -58,16 +58,17 @@ int main(int argc, char* argv[]){
             int row;
             int col;  
             do{
-                //Print turn
+                //Printable X and O
                 char token;
                 if(turn == 1){ token = 'X'; }
                 if(turn == -1){ token = 'O'; }
 
-                //Get input
+                //1. Ask user for square
                 string position;
                 cout << "Player [" << token << "], it's your turn! Where would you like to play, " << token << "? (1-9): ";
                 getline(cin, position);
 
+                //2. Check input
                 //Check input is 1 character
                 if(position.length() != 1 || !isdigit(position[0]) || position == "0"){
                     cout << "[Error]: Please enter a valid number (1-9).\n";
@@ -80,7 +81,7 @@ int main(int argc, char* argv[]){
                 //Check for valid square input
                 if(square < 1 || square > 9){
                     cout << "[Error]: Please enter a valid number (1-9).\n";
-                    board.print_board('p');
+                    board.print_board('p', 0);
                     continue;
                 }
 
@@ -89,30 +90,29 @@ int main(int argc, char* argv[]){
                 col = (square - 1) % 3;
                 
                 //Check if square is occupied or not
-                //Also checks if row and col is of a square that will be deleted
                 if(board.occupied(row, col)){
                     cout << "[Error]: Square already filled. Please pick a different square.\n";
-                    board.print_board('p');
+                    board.print_board('p', 0);
                     continue;
                 }
 
             }while(square < 1 || square > 9 || board.occupied(row, col));    
 
-            //Update the board and the turn, and print the board
-            if(turn == 1){
-                board.xs.push_front(make_pair(row, col));
-                board.update_board(board.xs.back().first, board.xs.back().second, 0);
-            }else if (turn == -1){
-                board.os.push_front(make_pair(row, col));
-                board.update_board(board.os.back().first, board.os.back().second, 0);
-            }
+            //3. Update Deques
+            if(turn == 1){ board.xs.push_front(make_pair(row, col)); }
+            else if (turn == -1){ board.os.push_front(make_pair(row, col)); }
+
+            //4. Update Board
             board.update_board(row, col, turn);
+
+            //5. Update Turn
             turn *= -1;  
-            board.print_board('p');
-            if(turn == 1){ board.os.pop_back(); }
-            if(turn == -1) { board.xs.pop_back(); }
+
+            //6. Update meta board for fading token and print
+            if(turn == 1){ board.print_board('p', 1); }
+            else if(turn == -1){ board.print_board('p', -1); }
             
-            //Check if the game is over
+            //8. Check Win
             int result = board.game_over();
             if(result == 1){
                 //X won
@@ -123,6 +123,11 @@ int main(int argc, char* argv[]){
                 cout << "O won!" << endl;
                 game_continue = false;
             }
+
+            //9. Delete old token from board and output fade warning
+            board.update_board();
+            cout <<
+            pop_back();
         }while(game_continue);
             board.reset_board();
 

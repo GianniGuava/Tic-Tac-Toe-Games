@@ -116,15 +116,17 @@ int main(int argc, char* argv[]){
             int result = board.game_over();
             if(result == 1){
                 //X won
-                cout << "\n*********************************";
+                cout << "\n*********************************\n";
                 cout << "*           X WINS!             *\n";
-                cout << "\n*********************************";
+                cout << "*********************************\n";
+                cout << endl;
                 game_continue = false;
             }else if(result == -1){
                 //O won
-                cout << "\n*********************************";
+                cout << "\n*********************************\n";
                 cout << "*           O WINS!             *\n";
-                cout << "\n*********************************";
+                cout << "*********************************\n";
+                cout << endl;
                 game_continue = false;
             }else{
                 //9. Delete old token from board and output fade warning

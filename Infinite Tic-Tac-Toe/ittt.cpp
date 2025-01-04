@@ -22,8 +22,8 @@ struct itttBoard{
     void update_board(int r, int c, int turn){ game_board[r][c] = turn; }
 
         int game_over(){
-        //Returns:      -1 = O, 1 = X, 0 = tie
-        //Win Totals:   -3 = O, 3 = X, [-2, 2] = tie
+        //Returns:      -1 = O, 1 = X
+        //Win Totals:   -3 = O, 3 = X
 
         //Diagnoal win totals 
         int diagRL = game_board[0][0] + game_board[1][1] + game_board[2][2];
@@ -42,8 +42,8 @@ struct itttBoard{
         int totals_array[] = {diagRL, diagLR, colL, colM, colR, rowT, rowM, rowB};
 
         for(int total : totals_array){
-            //Returns:      -1 = O, 1 = X, 0 = tie
-            //Win Totals:   -3 = O, 3 = X, [-2, 2] = tie
+            //Returns:      -1 = O, 1 = X
+            //Win Totals:   -3 = O, 3 = X
             if(total == 3){ return 1; }
             if(total == -3){ return -1; }
         }
@@ -53,10 +53,6 @@ struct itttBoard{
 
     bool occupied(int row, int col){
         if(game_board[row][col] != 0){ return true; } 
-        else if(xs.size() == 4 || os.size() == 4){
-            // if(xs.back().first == row && xs.back().second == col){ return true; }
-            // else if(os.back().first == row && os.back().second == col){ return true; }
-        }
         return false;
     }
 
@@ -66,7 +62,8 @@ struct itttBoard{
                 game_board[r][c] = 0;
             }
         }   
-        //Reset xs and os deques
+        xs.clear();
+        os.clear();
     }
 
     void print_board(char type, int turn){
@@ -91,12 +88,16 @@ struct itttBoard{
             for(int r = 0; r < 3; r++){
                 for(int c = 0; c < 3; c++){
                     string token = " ";
-                    if(game_board[r][c] == 1){ 
-                        if(xs.back().first == r && xs.back().second == c && xs.size() == 4){ token = "×"; }
+                    if(game_board[r][c] == 1){
+                        int xRow = xs.back().first;
+                        int xCol = xs.back().second; 
+                        if(turn == 1 && (xRow == r && xCol == c) && (xs.size() == 3)){ token = "×"; }
                         else{ token = "X";  }
                         }
-                    if(game_board[r][c] == -1){ 
-                        if(os.back().first == r && os.back().second == c && os.size() == 4){ token = "◌"; }
+                    if(game_board[r][c] == -1){
+                        int oRow = os.back().first;
+                        int oCol = os.back().second; 
+                        if(turn == -1 && (oRow == r && oCol == c) && (os.size() == 3)){ token = "◌"; }
                         else{ token = "O";  }
                         }
                     if(game_board[r][c] == 0){ token = " "; }

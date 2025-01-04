@@ -116,18 +116,32 @@ int main(int argc, char* argv[]){
             int result = board.game_over();
             if(result == 1){
                 //X won
-                cout << "X won!" << endl;
+                cout << "\n*********************************";
+                cout << "*           X WINS!             *\n";
+                cout << "\n*********************************";
                 game_continue = false;
             }else if(result == -1){
                 //O won
-                cout << "O won!" << endl;
+                cout << "\n*********************************";
+                cout << "*           O WINS!             *\n";
+                cout << "\n*********************************";
                 game_continue = false;
+            }else{
+                //9. Delete old token from board and output fade warning
+                if(turn == 1 && board.xs.size() == 3){
+                    int xRow = board.xs.back().first;
+                    int xCol = board.xs.back().second;
+                    board.update_board(xRow, xCol, 0);
+                    cout << "Player [X], your X on square [" << (xRow * 3 + xCol) << "] will disappear.\n";
+                    board.xs.pop_back();
+                }else if(turn == -1 && board.os.size() == 3){
+                    int oRow = board.os.back().first;
+                    int oCol = board.os.back().second;
+                    board.update_board(oRow, oCol, 0);
+                    cout << "Player [O], your O on square [" << (oRow * 3 + oCol) << "] will disappear.\n";
+                    board.os.pop_back();
+                }
             }
-
-            //9. Delete old token from board and output fade warning
-            board.update_board();
-            cout <<
-            pop_back();
         }while(game_continue);
             board.reset_board();
 

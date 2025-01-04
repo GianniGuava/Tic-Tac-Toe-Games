@@ -2,6 +2,8 @@
 This repository contains 3 Tic-Tac-Toe variants (currently), with more on the way!
 Each variant was built using C++ in VSCode and is designed to run in the terminal of whatever programming application or IDE you use.
 
+Of the currently released variants, playing for X and O requires user input. Bring a friend or play against yourself!
+
 ## Features:
 ### Released:
 - Basic Tic-Tac-Toe: The original Tic-Tac-Toe
@@ -9,8 +11,8 @@ Each variant was built using C++ in VSCode and is designed to run in the termina
 - Infinite Tic-Tac-Toe: Tic-Tac-Toe with a maximum of 3 Xs and 3 Os!
 
 ### Coming Soon:
-- Tic-Tac-Toe vs. Computer: Play against a computer opponent that always knows the best move!
 - Tic-Tac-Toe Solved: A database of all the possible game states of Tic-Tac-Toe, optimized for symmetry and reflection.
+- Tic-Tac-Toe vs. Computer: Play against a computer opponent that always knows the best move!
 - Super Tic-Tac-Toe vs. AI: Play against an AI in Super Tic-Tac-Toe!
 
 ## Installation Instructions:

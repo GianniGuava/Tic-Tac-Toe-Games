@@ -21,7 +21,7 @@ Fork the code, open the folder of the game you want to play in the application o
 For example, to play Super Tic-Tac-Toe, open the "Super Tic-Tac-Toe" folder in the integrated terminal and run the above commands.
 
 ## Game Rules:
-### - Super Tic-Tac-Toe:
+### Super Tic-Tac-Toe:
   - In this game, there is a Tic-Tac-Toe game inside each square of the giant Tic-Tac-Toe game
   - Winning on the smaller boards will mark the corresponding square on the big board with the player who won
   - Tying will result in a "-" being placed, indicating a draw
@@ -33,4 +33,4 @@ For example, to play Super Tic-Tac-Toe, open the "Super Tic-Tac-Toe" folder in t
 ### Infinite Tic-Tac-Toe:
   - In this game, the maximum number of Xs and Os is 3 each.
     - (Ex: If there are already 3 Xs on the board, upon placement of the 4th, the oldest X placed will disappear)
-  - Game continues until X or O wins. 
+  - Play continues until X or O wins. 

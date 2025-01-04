@@ -17,10 +17,10 @@ Of the currently released variants, playing for X and O requires user input. Bri
 
 ## Installation Instructions:
 Fork the code, open the folder of the game you want to play in the application of your choice (make sure it is in a C++ environment), and then run the following commands:
-  - g++ main.cpp
-  - ./a.out
+- g++ main.cpp
+- ./a.out
 
-For example, to play Super Tic-Tac-Toe, open the "Super Tic-Tac-Toe" folder in the integrated terminal and run the above commands.
+(Ex. To play Super Tic-Tac-Toe, open the "Super Tic-Tac-Toe" folder in the integrated terminal and run the above commands.)
 
 ## Game Rules:
 ### Super Tic-Tac-Toe:

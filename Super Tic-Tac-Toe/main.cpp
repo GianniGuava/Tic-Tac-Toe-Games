@@ -76,7 +76,7 @@ int main(int argc, char* argv[]){
             string userBoard;
             if(boardToBePlayed == 0){ 
                 //If user can play anywhere, select a board
-                cout << "Player [" << token << "], it's your turn! You can play on any unfinished board." << endl;
+                cout << "Player [" << token << "], it's your turn! You can play on any unfinished board.\n";
                 while(true){
                     //Prompt user for board
                     cout << "What board would you like to play on, ["<< token << "]?: ";
@@ -153,7 +153,7 @@ int main(int argc, char* argv[]){
             //Print out winner of game
             if(board.metaBoardFull() || board.metaGameOver() != 0){
                 int winner = board.metaGameOver();
-                cout << "\n*********************************";
+                cout << "\n*********************************\n";
                 if(winner == 1){
                     //X won
                     cout << "*           X WINS!             *\n";

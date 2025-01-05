@@ -17,7 +17,7 @@ Of the currently released variants, playing for X and O requires user input. Bri
 - **Super Tic-Tac-Toe vs. AI:** Play against an AI in Super Tic-Tac-Toe!
 
 ## Installation Instructions:
-***Note** This project was made and designed in **VSCode**. Follow the steps below to start playing:
+***Note** This project was made and designed in **VSCode** on **Windows**. Follow the steps below to start playing:
 
 1. **Clone the Repository:**
   - Create the file you want to clone your repository in.
@@ -31,7 +31,6 @@ Of the currently released variants, playing for X and O requires user input. Bri
   - **If you're on Windows,** download and install **VSCode** and a **C++ Compiler** by following this video tutorial provided by my university:
     - [HOW TO SET UP A C++ PROGRAMMING ENVIRONMENT ON WINDOWS - Shmeowlex](https://www.youtube.com/watch?v=z9pl-0shPTs)
     - *(This tutorial was created by my university faculty and ensures that your environment is properly configured for C++.)*
-  - **If you're on MacOS,** 
    
 3. **Open the Folder in VSCode:**
    - Right-click on the "Tic-Tac-Toe Games" folder, and select "Open with Code".

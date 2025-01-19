@@ -14,7 +14,7 @@ Of the currently released variants, playing for X and O requires user input. Bri
 ### Coming Soon:
 - **Tic-Tac-Toe Solved:** A database of all the possible game states of Tic-Tac-Toe, optimized for symmetry and reflection.
 - **Tic-Tac-Toe vs. Computer:** Play against a computer opponent that always knows the best move!
-- **Super Tic-Tac-Toe vs. AI:** Play against an AI in Super Tic-Tac-Toe!
+- **Infinite Tic-Tac-Toe vs. AI:** Play against an AI in Infinite Tic-Tac-Toe!
 
 ## Installation Instructions:
 ***Note** This project was made and designed in **VSCode** on **Windows**. Follow the steps below to start playing:
